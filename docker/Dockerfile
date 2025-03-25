@@ -1,4 +1,4 @@
-FROM ros:humble-perception
+FROM ros:noetic-perception
 
 ENV WS_DIR="/ros2_ws"
 WORKDIR ${WS_DIR}
@@ -23,7 +23,7 @@ RUN apt-get update \
 
 RUN apt-get update \
  && apt-get install -y \
-    ros-${ROS_DISTRO}-rviz2 \
+    ros-${ROS_DISTRO}-rviz \
  && rm -rf /var/lib/apt/lists/*
 
 ARG DEBIAN_FRONTEND=dialog

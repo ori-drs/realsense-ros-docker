@@ -6,6 +6,13 @@ services:
       dockerfile: docker/Dockerfile
       #target: librealsense
     tty: true
+    network_mode: "host"
+    environment:
+      - ROS_MASTER_URI=http://anymal-d045-lpc:11311/
+      - ROS_IP=192.168.0.86
+    extra_hosts:
+      - anymal-d045-lpc:192.168.0.85
+      - anymal-d045-npc:192.168.0.86
     volumes:
       - /dev:/dev
     device_cgroup_rules:
