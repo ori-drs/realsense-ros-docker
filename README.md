@@ -1,10 +1,10 @@
-# Docker for Intel Realsense cameras on ROS 2
+# Docker container for Intel Realsense camera in ROS.
 
-Author: [Tobit Flatscher](https://github.com/2b-t) (2022 - 2024)
+Original Author: [Tobit Flatscher](https://github.com/2b-t) (2022 - 2024)
 
 [![Build](https://github.com/2b-t/realsense-ros2-docker/actions/workflows/build.yml/badge.svg)](https://github.com/2b-t/realsense-ros2-docker/actions/workflows/build.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-
+## TODO: UPDATE README
 
 ## 0. Overview
 This repository contains a Docker and all the documentation required to launch an [Intel Realsense camera](https://www.intel.co.uk/content/www/uk/en/architecture-and-technology/realsense-overview.html) with the [Robot Operating System ROS 2](https://docs.ros.org/en/humble/index.html).

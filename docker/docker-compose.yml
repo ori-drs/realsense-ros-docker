@@ -1,18 +1,27 @@
 version: "3.9"
 services:
-  realsense_ros2:
+  realsense_ros:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-      #target: librealsense
-    tty: true
-    network_mode: "host"
+      target: ${TARGET}
+      args:
+        - UBUNTU_DISTRO=${UBUNTU_DISTRO}
+        - ROS_DISTRO=${ROS_DISTRO}
+        - CATKIN_WORKSPACE_DIR=${CATKIN_WORKSPACE_DIR}
+        - USERNAME=${USERNAME:-developer}
+        - UID=${UID}
+        - GID=${GID}
+    image: realsense-ros:ubuntu${UBUNTU_DISTRO}-${TARGET}
+    container_name: realsense_ros
     environment:
-      - ROS_MASTER_URI=http://anymal-d045-lpc:11311/
-      - ROS_IP=192.168.0.86
+      - ROS_MASTER_URI=http://${ROBOT_IP}:11311/
+      - ROS_IP=${YOUR_IP}
     extra_hosts:
-      - anymal-d045-lpc:192.168.0.85
-      - anymal-d045-npc:192.168.0.86
+      - "${ROBOT_HOSTNAME}:${ROBOT_IP}"
+      - "${YOUR_HOSTNAME}:${YOUR_IP}"
+    network_mode: "host"
+    tty: true
     volumes:
       - /dev:/dev
     device_cgroup_rules:
